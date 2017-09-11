@@ -1,0 +1,52 @@
+
+.disItem{
+	margin-top: 20px!important;
+	text-align: center!important;
+	overflow: hidden!important;
+
+}
+.disItem div{
+	overflow: hidden!important;
+
+}
+.thumbnail{
+	padding:0;
+}
+.disItem:hover .disImg{
+  transition:1s;
+  -webkit-transform: scale(1.05);
+    	  transform: scale(1.05);
+}
+.disItem h3{
+	font-size: 18px;
+	line-height: 18px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-top: 5px;
+}
+.disItem p{
+	font-size: 15px;
+	line-height: 15px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	color: #888;
+}
+.disImg{
+  	transition:1s;
+}
+.disBtn{
+	width:120px;
+	height: 40px;
+	margin:5px auto;
+	background-color: #119951;
+	border:0;
+	outline: 0;
+	font-size: 16px;
+	line-height: 40px;
+	cursor: pointer;
+	color: #fff;
+}

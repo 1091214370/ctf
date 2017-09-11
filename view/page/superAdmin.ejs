@@ -1,0 +1,102 @@
+<%- include('../include/header.ejs') %>
+
+
+<style type="text/css">
+	h2{
+		font-size: 20px;
+		line-height: 40px;
+	}
+</style>
+<section id="service" class="hSize">
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2>场景列表</h2>
+			</div>
+
+			<table class="table table-hover table-bordered text-center">
+				<thead>
+					<tr>
+						<td>序号</td>
+						<td>标题</td>
+						<td>作者</td>
+						<td>预览</td>
+						<td>删除</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% var SightMsgs %>
+					<% if(SightMsgs && SightMsgs.length>0){ %>
+						<% for(var i=0;i<SightMsgs.length;i++){%>
+							<tr class="SightMsgs<%=SightMsgs[i].id %>">
+								<td><%=i %></td>
+								<td><%=SightMsgs[i].title %></td>
+								<td><%=SightMsgs[i].author %></td>
+								<td>
+									<a href="/items/"+<%=SightMsgs[i].id %>  target="_blank">查看</a>
+								</td>
+								<td><button type="button" class="btn btn-danger dlsight" data-id="<%=SightMsgs[i].id%>" >删除</button></td>
+							</tr>
+							<%}%>
+							<%}%>
+						</tbody>
+					</table>
+				</div>
+				<div class="page-header">
+					<h2>用户列表</h2>
+				</div>
+				<div class="row">
+					<table class="table table-hover table-bordered text-center">
+						<thead>
+							<tr>
+								<td>序号</td>
+								<td>用户名</td>
+								<td>权限</td>
+								<td>删除</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% var Users %>
+							<% if(Users && Users.length>0){ %>
+								<% for(var i=0;i<Users.length;i++){%>
+									<tr class="Users<%=Users[i]._id%>">
+										<td><%=i%></td>
+										<td><%=Users[i].name%></td>
+										<td><%if(Users[i].role==8784){%>
+											系统管理员
+											<%}else{%>
+												普通用户
+												<%}  %></td>
+												<td><button type="button" class="btn btn-danger dluser" data-id="<%=Users[i].id%>" >删除</button></td>
+											</tr>
+											<%}%>
+											<%}%>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+						<script>
+							$(function(){
+								$(".dlsight").click(function(e){ delitem(e,"SightMsgs")});
+								$(".dluser").click(function(e){ delitem(e,"Users")});
+
+							});
+							function delitem (e,url){
+								var target=$(e.target);
+								var id=target.data("id");
+								var tr=$("."+url+id);
+								$.ajax({
+									type:"delete",
+									url:"/delete/"+url+"?id="+id
+								})
+								.done(function(results){
+									if(results.success===1){
+										if(tr.length>0){
+											tr.remove();
+										}
+									}
+								});
+							}
+						</script>
+						<%- include('../include/footer.ejs') %>

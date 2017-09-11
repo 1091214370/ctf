@@ -1,0 +1,43 @@
+<%- include('../include/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="css/disItem.css">
+<section id="service" class="hSize">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-3 disItem">
+                <div class="thumbnail">
+                    <img class="disImg" src="/upload/1/qian.jpg">
+                    <div class="caption disMsg" >
+                        <h3>公园实景展示</h3>
+                        <p>本站示例一，展示一公园实景</p>
+                        <a href="/demos/item1" target="_blank"><button class="disBtn" type="button">点击体验</button></a> 
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-md-3 disItem">
+                <div class="thumbnail">
+                <img class="disImg" src="/upload/2/qian.jpg">
+                    <div class="caption disMsg">
+                        <h3>校园实景展示</h3>
+                        <p>本站示例二，校园操场实景拍摄</p>
+                        <a href="/demos/item2" target="_blank"><button class="disBtn" type="button">点击体验</button></a> 
+                    </div>
+                </div>
+            </div> 
+            <% var SightMsgs%>
+            <% for(var i=0;i<SightMsgs.length;i++){%>
+
+            <div class="col-sm-4 col-md-3 disItem">
+                <div class="thumbnail">
+                <img class="disImg" src="<%=SightMsgs[i].qianSrc%>">
+                    <div class="caption disMsg">
+                        <h3><%=SightMsgs[i].title %></h3>
+                        <p><%=SightMsgs[i].discribetion %></p>
+                        <a href="/items/<%=SightMsgs[i]._id%>" target="_blank"><button class="disBtn" type="button">点击体验</button></a> 
+                    </div>
+                </div>
+            </div> 
+            <% } %>
+        </div>
+    </div>  
+</section>
+<%- include('../include/footer.ejs') %>

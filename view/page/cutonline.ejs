@@ -1,0 +1,24 @@
+<%- include('../include/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/create.css">
+<section id="service" class="hSize">
+	<div class="container">
+		<div class="cutbox">
+			<div id="cutshang"></div>
+			<div id="cutxia"></div>
+			<div id="cutzuo"></div>
+			<div id="cutyou"></div>
+			<div id="cutqian"></div>
+			<div id="cuthou"></div>
+		</div>
+	</div>
+</section>
+<script src="/js/layer/layer.js"></script>
+<script>
+	layer.alert('功能正在努力开发中，敬请期待！跳转首页', {
+  		skin: 'layui-layer-molv' //样式类名
+  		,closeBtn: 0
+		}, function(){
+	  		window.location.href='/';
+	});
+</script>
+<%- include('../include/footer.ejs') %>

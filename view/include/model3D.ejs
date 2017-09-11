@@ -1,0 +1,10 @@
+<script type="text/javascript">
+	$(document).ready(startup);
+</script>
+	<div id="Main">
+		<script type="text/javascript" src="js/cubemapviewer.js"></script>
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<script>
+			function startup(){ webGLStart("/upload/"+"<%= %>"); }
+		</script>
+	</div>

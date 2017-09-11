@@ -1,0 +1,49 @@
+<%- include('../include/header.ejs') %>
+<% var title,discribetion,authorName,time,shangSrc,xiaSrc,zuoSrc,youSrc,qianSrc,houSrc; %>
+
+<link rel="stylesheet" type="text/css" href="/css/layoutBox.css">
+    <section id="service" class="hSize">
+        <div class="container">
+            <div class="layoutBox">
+                <div class="layoutBox-l">
+                    <div id="Main">
+                        <script type="text/javascript" src="/js/cubemapviewer1.js"></script>
+                        <canvas id="canvas" width="710" height="512"></canvas>
+                        <script>
+                            var shang='<%=shangSrc %>';
+                            var xia='<%=xiaSrc %>';
+                            var zuo='<%=zuoSrc %>';
+                            var you='<%=youSrc %>';
+                            var qian='<%=qianSrc %>';
+                            var hou='<%=houSrc %>';
+
+                            function startup(){ webGLStart(shang,xia,zuo,you,qian,hou); }
+                            $(document).ready(startup);
+                        </script>
+                    </div>
+
+                </div>
+                <div class="layoutBox-r">
+                    <h3><%=title %></h3>
+                    <h5>作者:<%=authorName %></h5> 
+                    <span id="time"></span>
+                    <p><%=discribetion %></p>
+                    <div class="jiathis_style">
+                    <p>分享到：</p>
+                        <a class="jiathis_button_qzone">QQ空间</a>
+                        <a class="jiathis_button_tsina">新浪微博</a>
+                        <a class="jiathis_button_tqq">腾讯微博</a>
+                        <a class="jiathis_button_weixin">微信</a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>  
+    </section>
+<script>
+    var d = new Date("<%=time %>");
+    var t=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    $('#time').text(t);
+</script>
+
+<%- include('../include/footer.ejs') %>

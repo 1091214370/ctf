@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <title>首页--基于WEBGL的3D场景实现</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <link rel="stylesheet" href="css/owl.theme.css"/>
+    <link rel="stylesheet" href="css/prettyPhoto.css"/>
+    <link rel="stylesheet" href="css/red.css"/>
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar-fixed-top" onload="startup()">
+    <header id="section_header" class="navbar-fixed-top main-nav" role="banner" style="opacity: 0.7;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img src="images/logo.jpg" style="position:absolute; left:50px; top:1px;width:200px;height: 80px;">
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse navigation" id="bs-example-navbar-collapse-1" role="navigation">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="active"> <a href="#slider_part" class="page-scroll">首页</a></li>
+                    <li><a href="#service"  class="page-scroll">示例演示</a></li>
+                    <li><a href="#testimonial" class="page-scroll">开始制作</a> </li>
+                    <li><a href="/list" class="page-scroll">成品列表</a></li>
+                    <li><a href="/teach" class="page-scroll">使用教程</a></li>
+                    <% var user,url %>
+                    <% if(user){ %>
+                        <% if(user.role==8784) { %>
+                         <%url='/admins/superAdmin/'+user.name%>
+                            <%}else{%>
+                                <% url='/admins/userAdmin/'+user.name%>
+                            <%}%>
+                        <li><a href="<%=url %>" class="page-scroll">欢迎<%=user.name%></a></li>
+                            <li><a href="/logout" class="page-scroll">注销登录</a></li>
+                        <% }else{%>
+                            <li><a href="/login" class="page-scroll">登录</a></li>
+                            <li><a href="/signup" class="page-scroll">注册</a></li>
+                            <%}%>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="slider_part">
+        <div class="carousel slide" id="carousel-example-generic" data-ride="carousel">
+            <ol class="carousel-indicators text-center">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="overlay-slide">
+                        <img src="images/banner/2.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="carousel-caption">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <h3 class="animated2"><b>图片</b>的酷炫<b>3D效果！</b></h3>
+                            <div class="line"></div>
+                            <p class="animated3">独一无二的设计</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="overlay-slide">
+                        <img src="images/banner/4.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="carousel-caption">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <h3 class="animated3"><b>室内装饰</b>效果<b>3D</b>展示</h3>
+                            <div class="line"></div>
+                            <p class="animated2">对你最好的选择</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="overlay-slide">
+                        <img src="images/banner/1.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="carousel-caption">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <h3 class="animated3">打造<b>不一样</b>的<b>景点</b>展示</h3>
+                            <div class="line"></div>
+                            <p class="animated2">全新的身心体验</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 	 
+            <div class="slides-control ">
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span><i class="fa fa-angle-left"></i></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="feature_header text-center">
+                        <h3 class="feature_title">3D场景<b>做什么</b></h3>
+
+                        <h4 class="feature_sub"><b>朋友圈分享、家装展示、景区预览，让你身临其境</b></h4>
+                        <div class="divider"></div>
+
+                        <h4>拖动你的鼠标，快来体验吧！</h4>
+                    </div>
+                </div>  
+            </div>
+            <div class="row">
+               <div class="main_feature text-center">
+                <div id="Main">
+                    <script type="text/javascript" src="js/cubemapviewer.js"></script>
+                    <canvas id="canvas" width="800" height="512"></canvas>
+                    <script>
+                        function startup(){ webGLStart("/upload/1/"); }
+                    </script>
+                </div>
+            </div>
+            
+        </div>  
+    </div>  
+</section>
+
+<section id="testimonial" class="wow fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="feature_header text-center">
+                <h3 class="feature_title"><b>show</b> time</h3>
+                    <h4 class="feature_sub">现在，准备好你的图片，<b>猛戳下方</b>开始制作吧</h4>
+                    <div class="divider"></div>
+                </div>
+            </div>  
+        </div>
+        <div class="row">
+            <div id="testimonial-carousel" class="owl-carousel owl-theme text-center testimonial-slide">
+                <div class="item">
+                    <div class="testimonial-thumb">
+                        <a href="/creat3D"><img id="createIcon" class="img-circle pulse" src="images/team/pic1.jpg" alt="testimonial" ></a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="testimonial-content">
+                        <h3 class="name"> WHAT？还没告诉你怎么操作(O_o)??<a href="/teach"><span>戳我学习吧</span></a></h3>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section> 
+    <script type="text/javascript">
+    $(document).ready(canvasSize);
+    $(window).on('resize',canvasSize);
+    function canvasSize(){
+        $('canvas').attr({'width':'800','height':'512'});
+        if($(window).width()<1000){
+            if($(window).width()<650){
+                $('canvas').attr({'width':'350','height':'350'});
+            }else{
+                $('canvas').attr({'width':'512','height':'400'});
+            }
+            
+        }
+    }
+    </script>
+    <%- include('../include/footer.ejs') %>

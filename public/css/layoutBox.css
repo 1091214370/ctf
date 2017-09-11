@@ -1,0 +1,83 @@
+.layoutBox{
+	width:1200px;
+	height: auto;
+	overflow: hidden;
+	margin:10px auto;
+}
+.layoutBox-l{
+	width:800px;
+	height: 620px;
+	margin-right: 10px;
+	float: left;
+}
+.layoutBox-l .Main{
+	width:720px;
+	height: 600px;
+}
+.layoutBox-r{
+	width:350px;
+	height: 600px;
+	padding:40px 20px;
+	float: left;
+}
+.layoutBox-r h3{
+	font-size: 20px;
+	line-height: 20px;
+	color: #000;
+	width:350px;
+	height: 20px;
+	white-space: normal;
+	text-overflow:ellipsis;
+	margin:10px 0;
+}
+.layoutBox-r h4{
+	font-size: 14px;
+	line-height: 14px;
+	color: #e1e1e1;
+	width:350px;
+	white-space: normal;
+	text-overflow:ellipsis;
+	margin:10px 0;
+
+}
+.layoutBox-r span{
+	font-size: 14px;
+	line-height: 14px;
+	width:350px;
+	white-space: normal;
+	text-overflow:ellipsis;
+	margin:10px 0;
+}
+.layoutBox-r p{
+	font-size: 16px;
+	line-height: 20px;
+	color: #888;
+	width:330px;
+	height: 300px;
+	white-space: normal;
+	margin:10px 0;
+	padding:5px;
+	border:1px solid #888;
+
+}
+.jiathis_style{
+	width:350px;
+	height: 30px;
+
+}
+.jiathis_style p{
+	border:0;
+	width:70px;
+	display: block;
+	float: left;
+	font-size: 14px;
+	line-height: 14px;
+	margin:0;
+}
+.jiathis_style a{
+	width:70px;
+	line-height: 14px;
+	display: block;
+	float: left;
+	margin-top: 2px;
+}

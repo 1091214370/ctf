@@ -1,0 +1,63 @@
+<%- include('../include/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/create.css">
+<script src="/js/layer/layer.js"></script>
+
+<section id="service" class="hSize">
+    <div class="container">
+        <div class="create">
+            <form method="post" action="" enctype="multipart/form-data" id="imgform" name="uploadFile">
+              <div class="form-group">
+                 <p class="help-block" style="font-family: 'YaHei">* 此处需要上传六张图片，分别作为3D场景的六个面，仅支持上传jpg或png格式，单张最大不得超过2M，<b style="font-size: 16px;">使用此上传功能既默认您已经剪裁好图片,且满足我们的要求，</b>图片大小为512px*512px。</p>
+                 <h4 style="float: right">您还可以选择<a href="http://pan.baidu.com/s/1mh8TIoK">下载示例图片</a>或<a href="/cutonline"><b>在线切图</b></a></h4>
+                 <label for=""><h4>标题：</h4></label>
+                 <input type="text" class="form-control sightTitle" id="title" placeholder="请输入标题" name="title" value="" required>
+             </div>
+             <div class="form-group">
+                <label for=""><h4>描述：</h4></label>
+                <textarea class="form-control sightDis" rows="5" placeholder="请简单描述一下您的场景信息" name="discribetion" id="discribetion" required value=""></textarea>
+            </div>
+            <div class="createBox">
+                <div class="form-group box-l col-md-6 col-sm-6">
+
+                    <label for="shang">上传图片：(上)</label>
+                    <input type="file" id="shang" style="margin-bottom: 20px;" name="shang">
+                    <label for="xia">上传图片：(下)</label>
+                    <input type="file" id="xia" name="xia"  style="margin-bottom: 20px;">
+                    <label for="zuo">上传图片：(左)</label>
+                    <input type="file" id="zuo" name="zuo" style="margin-bottom: 20px;">
+                    <label for="you">上传图片：(右)</label>
+                    <input type="file" id="you" name="you" style="margin-bottom: 20px;">
+                    <label for="qian">上传图片：(前)</label>
+                    <input type="file" id="qian" name="qian" style="margin-bottom: 20px;">
+                    <label for="hou">上传图片：(后)</label>
+                    <input type="file" id="hou" name="hou">
+
+                </div>
+                <div class=" box-r disImg" >
+                 <p class="help-block" style="color: #fff;">上传图片预览区域：</p>
+
+                 <ul >
+                    <li>
+                        <img  alt="上" class="shang" id="shangImg">
+                    </li>
+                    <li>
+                        <img  alt="左" class="zuo" id="zuoImg">
+                        <img  alt="前" class="qian" id="qianImg">
+                        <img  alt="右" class="you" id="youImg">
+                        <img  alt="后" class="huo" id="houImg">
+                    </li>
+                    <li>
+                        <img src="" alt="下" class="shang xia" id="xiaImg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group btn-submit">
+            <button type="button" class="btn btn-success btn-lg" id="submit">提交</button>
+        </div>
+    </form>
+<script src="/js/uploadImg.js"></script>
+</div>
+</div>  
+</section>
+<%- include('../include/footer.ejs') %>

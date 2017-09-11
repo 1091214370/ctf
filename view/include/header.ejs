@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="description" content="">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.css"/>
+    <link rel="stylesheet" href="/css/owl.theme.css"/>
+    <link rel="stylesheet" href="/css/prettyPhoto.css"/>
+    <link rel="stylesheet" href="/css/red.css"/>
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script src="/js/jquery.js"></script>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .hSize{
+            min-height:100%; 
+        }
+        button{
+            border:0 !important;
+            outline: 0 !important;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar-fixed-top">
+<header id="section_header" class="navbar-fixed-top main-nav" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.jpg" style="position:absolute; left:50px; top:1px;width:200px;height: 80px;">
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse navigation" id="bs-example-navbar-collapse-1" role="navigation">
+            <ul class="nav navbar-nav navbar-right ">
+                <li> <a href="/" class="page-scroll">首页</a></li>
+                <li><a href="/list" class="page-scroll">成品列表</a> </li>
+                <% var user,url %>
+                <% if(user){ %>
+                    <% if(user.role==8784) { %>
+                        <%url='/admins/superAdmin/'+user.name%>
+                        <%}else{%>
+                            <% url='/admins/userAdmin/'+user.name%>
+                            <%}%>
+                    <li><a href="<%=url %>" class="page-scroll">欢迎<%=user.name%></a></li>
+                    <li><a href="/logout" class="page-scroll">注销登录</a></li>
+                <% }else{%>
+                    <li><a href="/login" class="page-scroll">登录</a></li>
+                    <li><a href="/signup" class="page-scroll">注册</a></li>
+                <%}%>
+
+            </ul>
+        </nav>
+    </div>
+</header>

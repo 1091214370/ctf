@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src='/js/jquery.js'></script>
+    <script src="/js/layer/layer.js"></script>
+    
+    <!--[if IE]>
+    <script src="jsml5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        iframe{
+            width:120px;
+            height: 42px;
+            border:0;
+            outline: 0;
+        }
+        body{
+            margin:0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container demo-1">
+        <div class="content">
+            <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <div class="logo_box">
+                    <h3>测试账号：user1 密码：123456</h3>
+                    <form action="" name="" method="post">
+                        <div class="input_outer">
+                            <span class="u_user"></span>
+                            <input name="user[name]" class="text username" style="color: #FFFFFF !important" type="text" placeholder="请输入用户名称" required >
+                        </div>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input name="user[password]" class="text userpassword" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码" required >
+                        </div>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input name="user[code]" class="text textyz" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="请输入验证码" required>
+                            <div class="yzm" style="background-color: #fff;cursor: pointer;"><iframe id="iframe" marginwidth="0" marginheight="0" src="/verify"></iframe></div>
+                            <p class="kbq">看不清</p>
+                        </div>
+                        <div class="mb2"><a class="act-but submit" style="color: #FFFFFF; cursor: pointer">登录</a></div>
+                        <a href="/">返回首页</a><a>or</a>
+                        <a href="/signup">去注册</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/TweenLite.min.js"></script>
+    <script src="js/EasePack.min.js"></script>
+    <script src="js/rAF.js"></script>
+    <script src="js/demo-1.js"></script>
+
+    <script type="text/javascript">
+        $().ready(function(){
+            $('#iframe').find('body').css('margin','0');
+            $('.kbq').click(function(){
+             $('#iframe').attr('src', $('#iframe').attr('src'));
+         });
+            $('.submit').click(function(){
+                if($('.username').val().length>0){ 
+                    if($('.userpassword').val().length>5){ 
+                       if($('.textyz').val().length>0){ 
+                        $.ajax({
+                            url:'/user/login',
+                            type:'post',
+                            dataTape:'json',
+                            data:$('form').serializeArray(),
+                            success:function(data){
+                                if(data.code==3){
+                                //验证码错误
+                                layer.msg(data.msg);
+                                $('.textyz').focus();
+                            }else{
+                                if(data.code==1){
+                                    // 登录成功,返回用户名
+                                    window.location.href=data.msg;
+                                }else{
+                                    if(data.code==2){
+                                        // 用户不存在错误
+                                        layer.confirm(data.msg, {
+                                            btn: ['去注册','重新输入'] //按钮
+                                        }, function(){
+                                            window.location.href='/signup';
+                                        }, function(){
+                                            $('.userpassword').focus();
+                                        });
+                                    }else{
+                                        if(data.code==4){
+                                            //密码错误
+                                            layer.msg(data.msg);
+                                            $('.userpassword').focus();
+                                        }else{
+                                            layer.msg('未知错误');
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        error:function(xhr,err){
+                            layer.msg('系统异常');
+                        }
+
+                    });
+                    }else{
+                        layer.msg("请输入验证码！");
+                        $('.textyz').focus();
+                    }
+                }else{
+                    layer.msg("密码输入不规范！");
+                    $('.userpassword').focus();
+                }   
+            }else{
+                layer.msg("用户名不能为空！");
+                $('.username').focus();
+            }
+        });
+        })
+    </script>
+</body>
+</html>

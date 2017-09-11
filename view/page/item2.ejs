@@ -1,0 +1,38 @@
+<%- include('../include/header.ejs') %>
+
+
+<link rel="stylesheet" type="text/css" href="/css/layoutBox.css">
+    <section id="service" class="hSize">
+        <div class="container">
+            <div class="layoutBox">
+                <div class="layoutBox-l">
+                    <div id="Main">
+                        <script type="text/javascript" src="/js/cubemapviewer.js"></script>
+                        <canvas id="canvas" width="710" height="512"></canvas>
+                        <script>
+                            function startup(){ webGLStart("/upload/<%=id %>/"); }
+                            $(document).ready(startup);
+                        </script>
+                    </div>
+
+                </div>
+                <div class="layoutBox-r">
+                    <h3>校园实景展示</h3>
+                    <h5>作者: CTF团队 </h5> 
+                    <span>2017/08/06 22:12:56</span>
+                    <p>本站示例二，校园操场实景拍摄</p>
+                    <div class="jiathis_style">
+                    <p>分享到：</p>
+                        <a class="jiathis_button_qzone">QQ空间</a>
+                        <a class="jiathis_button_tsina">新浪微博</a>
+                        <a class="jiathis_button_tqq">腾讯微博</a>
+                        <a class="jiathis_button_weixin">微信</a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+
+<%- include('../include/footer.ejs') %>

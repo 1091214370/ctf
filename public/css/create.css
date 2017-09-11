@@ -1,0 +1,95 @@
+.create{
+	margin-top: 20px;
+}
+textarea{
+	resize:none;
+}
+.form-group p{
+	color:red;
+}
+box-l,box-r{
+	height: auto;
+	float: left;
+}
+button{
+	width: 120px;
+	display: block;
+	height: 40px;
+	margin: 10px auto;
+	line-height: 40px;
+	outline: 0;
+	border:0;
+}
+.disImg{
+	width:400px;
+	height: 350px;
+	overflow: hidden;
+	background:rgba( 0, 0, 0, 0.5);
+}
+.disImg ul li{
+	margin: 0;
+	padding: 0;
+	display: block;
+	float: none;
+	overflow: hidden;
+}
+.disImg img{
+	width:100px;
+	height: 100px;
+	display: block;
+	float: left;
+	border:0;
+	outline: 0;
+}
+.shang{
+	margin-left: 100px;
+}
+.box-l{
+	white-space: normal;
+	text-overflow:ellipsis;
+}
+.btn-submit{
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+/*在线剪裁样式*/
+.cutbox{
+	width:708px;
+	height: 500px;
+	margin:20px auto;
+	position: relative;
+	overflow: hidden;
+}
+#cutshang{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	transform:rotateX(-45deg);
+	background: #fefefe;
+}
+#cutxia{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
+#cutzuo{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
+#cutyou{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
+#cutqian{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
+#cuthou{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
