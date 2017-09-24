@@ -1,30 +1,32 @@
-----------�ļ�Ŀ¼����-----------
+本站基于webgl开发，在线生成全景，使用canvas对3D效果渲染。后台使用node.js开发，是一个功能全面的完整站点。虽然被齐鲁软件设计大赛的评为判定为未体现H5新特性，但是初心不忘，一定会开发出在线图片裁剪拼接是，自动生成3D场景，实现3D场景技术的大众化，让用户使用普通拍摄设备，以及简单的操作就能制作出自己的3D场景。
 
-ʹ�ñ�վ����Ҫnode.js+mongodb����֧�֣��������²���֮ǰ��ȷ��������Ҫ��
+----------文件目录介绍-----------
+
+使用本站点需要node.js+mongodb环境支持，进行如下操作之前请确保您符合要求
 
 
-*���Ȱ�װ��վ������Ҫ�Ļ������������þ���package.json�ļ��ڣ�ִ�� npm install ����Զ���װ���軷����
-����ȫ�ֻ����ɸ�����ʾ���а�װ��
+*首先安装本站点所需要的环境，环境配置均在package.json文件内，执行 npm install 便可自动安装所需环境，
+部分全局环境可根据提示进行安装。
 
-  ������װ��ɺ���ctf�ļ����ڣ��������д���ִ��  node app.js,�������������127.0.0.1:3000����ʹ�ñ�վ��
+  环境安装完成后，在ctf文件夹内，打开命令行窗口执行  node app.js,打开浏览器，输入127.0.0.1:3000即可使用本站。
 
-*app.js  ��վ��·���ļ�
+*app.js  本站的路由文件
 
-*controllers �������ļ���
+*controllers 控制器文件夹
 
-*models ���ݿ�ģ���ļ���
+*models 数据库模型文件夹
 
-*public ��̬�ļ���
+*public 静态文件夹
  +css
  +fonts
  +images
  +js
- +upload  �ϴ��ļ���
+ +upload  上传文件夹
 
-*schemas ���ݿ�ģʽ�ļ���
+*schemas 数据库模式文件夹
 
-*view  ��վ��ͼ�ļ���
- +include ����ͷ��β��
- +page  ��վ��ҳ��
+*view  网站视图文件夹
+ +include 公共头部尾部
+ +page  网站子页面
 
-*package.json  ��վ��������
+*package.json  网站配置详情
