@@ -197,8 +197,7 @@ app.post('/user/upload', function(req, res, next) {
 		form.uploadDir = './public/upload/';
 		form.keepExtensions = true;  
   		form.maxFieldsSize = 2 * 1024 * 1024; // 单位为byte  
-  		form.on('end', function() {  
-  		});  
+  		form.on('end', function() {});  
   		form.on('error', function(err) {  
   			console.error('上传失败：', err.message);  
   			next(err);  
